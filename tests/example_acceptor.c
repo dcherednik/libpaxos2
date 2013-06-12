@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
-
+#include <signal.h>
 #include "libpaxos.h"
 
 void handle_cltr_c (int sig) {
