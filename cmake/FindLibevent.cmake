@@ -25,8 +25,6 @@ find_library(EVENT_LIBRARY
 
 set(EVENT_LIBRARIES ${EVENT_LIBRARY} )
 
-add_definitions(-DLIBNET_LIL_ENDIAN)
-
 include(FindPackageHandleStandardArgs)
 
 find_package_handle_standard_args(EVENT
