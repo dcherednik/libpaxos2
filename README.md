@@ -58,42 +58,17 @@ A Paxos network is composed of the following actors:
 Setup
 ---------
 
-Before compiling LibPaxos, you need to have compiled both Berkeley DB and Libevent.
+Before compiling LibPaxos, you to have to install both Berkeley DB and Libevent with headers.
 
-Download BDB source code from http://www.oracle.com/technology/software/products/berkeley-db/db/index.html
-
-Extract it to some folder (i.e. ~/bdb) and follow the instructions included to compile, i.e., on unix-like: 
-
-    cd ~/bdb && ../dist/configure && make
-
-`~/bdb/build_unix/` should now contain the file `libdb.a`
-
-Download Libevent source from http://monkey.org/~provos/libevent-1.4.12-stable.tar.gz
-
-Extract it to some folder (i.e. ~/libevent) and follow the instructions included to compile, i.e., on unix-like: 
-
-    cd ~/libevent && ./configure && make
-
-`~/libevent/` should now contain the file `libevent.a`
-
-Update Makefile.inc in the main libpaxos directory to reflect the location of the library and header files for the two libraries.
-For example:
-
-    BDB_DIR		= $(HOME)/bdb/build_unix
-    LEV_DIR		= $(HOME)/libevent
-
-Take a look at paxos_config.h to see if the default configuration fits your needs.
 You can now compile libpaxos with:
     
-    cd libpaxos && make
+    cmake . && make
 
 To see LibPaxos in action, you can launch an example script that starts all the required actors plus a simple client. (Requires the `xterm` command to open different windows!)
 
 Edit the first variable of `scripts/local/run_example.sh` to reflect the placement of the LibPaxos tests/ directory on your filesystem. Example:
 
     PROJ_DIR="/Users/bridge/Desktop/libpaxos/trunk/libpaxos2/tests" 
-
-To link your own program with LibPaxos, you can copy the compiler flags used for the test programs (i.e. look at `tests/Makefile`)
 
 
 Feedback
